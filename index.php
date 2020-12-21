@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>My Project</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <script src="jquery-3.5.1.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,6 +30,7 @@
 </nav>
 
 <div class="container">
+    <h1>Новости - это вам не старости!</h1>
     <div class="row mb-3">
         <div class="col">
             <img src="https://fakeimg.pl/800x200/282828/eae0d0/?text=Banner" alt="banner" class="w-100 img-fluid">
@@ -39,31 +40,31 @@
         <div class="col-8">
             <h3>Последние новости</h3>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
             </ul>
         </div>
         <div class="col-4">
             <h3>Популярные новости</h3>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+                <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+                <li class="list-group-item"><a href="#">Morbi leo risus</a></li>
+                <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
             </ul>
         </div>
     </div>
