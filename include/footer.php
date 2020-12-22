@@ -1,5 +1,10 @@
-<nav class="navbar fixed-bottom navbar-light bg-light">
+</div>
+
+<nav class="navbar navbar-light bg-light">
     <div class="container">
-Copyright 2020 &copy;
+        Copyright 2020 &copy;
     </div>
 </nav>
+
+</body>
+</html>
