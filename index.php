@@ -1,4 +1,4 @@
-<?php include "include/header.php" ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/include/header.php" ?>
     <h1>Новости - это вам не старости!</h1>
     <div class="row mb-3">
         <div class="col">
@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="col-4">
-            <?php include "include/right_popular_news.php" ?>
+            <?php include  $_SERVER['DOCUMENT_ROOT'] . "include/right_popular_news.php" ?>
         </div>
     </div>
     <div class="row mb-3">
@@ -105,4 +105,4 @@
             </div>
         </div>
     </div>
-<?php include "include/footer.php" ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] .  "include/footer.php" ?>
