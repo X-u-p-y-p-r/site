@@ -1,108 +1,40 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/include/template/header.php";
 
-$arNews = getLastNews(10);
-?>
-    <h1>Новости - это вам не старости!</h1>
-    <div class="row mb-3">
-        <div class="col">
-            <img src="https://fakeimg.pl/800x200/282828/eae0d0/?text=Banner" alt="banner" class="w-100 img-fluid" />
-        </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col-8">
-            <h3>Посдедние новости</h3>
-            <ul class="list-group">
-                <?php foreach ($arNews as $news) { ?>
-                    <li class="list-group-item">
-                        <span class="badge bg-warning text-dark"><?php echo $news['datetime']; ?></span>
-                        <a href="<?php echo $news['url']; ?>"><?php echo $news['title']; ?></a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-        <div class="col-4">
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/include/template/right_popular_news.php" ?>
-        </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col">
-            <div class="card">
-                <a href="#">
-                    <img src="http://placekitten.com/250/150" class="card-img-top" alt="Cat">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="#">Card title</a>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <a href="#">
-                    <img src="http://placekitten.com/250/150" class="card-img-top" alt="Cat">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="#">Card title</a>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <a href="#">
-                    <img src="http://placekitten.com/250/150" class="card-img-top" alt="Cat">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="#">Card title</a>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <a href="#">
-                    <img src="http://placekitten.com/250/150" class="card-img-top" alt="Cat">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="#">Card title</a>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <a href="#">
-                    <img src="http://placekitten.com/250/150" class="card-img-top" alt="Cat">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="#">Card title</a>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <a href="#">
-                    <img src="http://placekitten.com/250/150" class="card-img-top" alt="Cat">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a href="#">Card title</a>
-                    </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/include/template/footer.php" ?>
+session_start();
+
+include $_SERVER['DOCUMENT_ROOT'] . '/include/core/functions.php';
+
+$routes = [
+    'main_page' => ['/', '/', 'index'],
+    'news_list' => ['/news/', '/news/', 'news/list'],
+    'news_detail' => ['/news/([0-9]+)-([0-9a-z-]+).html', '/news/<id>-<vvv_id>.html', 'news/detail'],
+    'contacts' => ['/contacts/', '/contacts/', 'contacts/index'],
+    'contacts_send_form' => ['/contacts/send/', '/contacts/send/', 'contacts/send'],
+];
+
+// роуты, для которых не нужны шапка и подвал
+$arRoutesWithoutHeaderAndFooter = [
+    'contacts_send_form',
+];
+
+$arRoute = getRoute();
+
+// получаем путь к файлу
+$page_file = $_SERVER['DOCUMENT_ROOT'] . '/pages/' . $arRoute['page'] . '.php';
+
+// если файл не существует, подключаем 404 страницу
+if(!is_file($page_file)) {
+    $page_file = $_SERVER['DOCUMENT_ROOT'] . '/pages/404.php';
+}
+
+$need_header_and_footer = !in_array($arRoute['name'], $arRoutesWithoutHeaderAndFooter);
+
+if($need_header_and_footer) {
+    printTemplateHtml('header');
+}
+
+include $page_file;
+
+if($need_header_and_footer) {
+    printTemplateHtml('footer');
+}
